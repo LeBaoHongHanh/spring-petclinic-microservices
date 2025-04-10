@@ -94,7 +94,7 @@ class VisitResourceTest {
                         .id(12)
                         .petId(123)
                         .date(date)
-                        .description("Visit 12")
+                        .description("Visit 15")
                         .build()
                 )
             );
@@ -106,7 +106,7 @@ class VisitResourceTest {
             .andExpect(jsonPath("$[0].petId").value(123))
             .andExpect(jsonPath("$[1].petId").value(123))
             .andExpect(jsonPath("$[0].description").value("Visit 1"))
-            .andExpect(jsonPath("$[1].description").value("Visit 12"));
+            .andExpect(jsonPath("$[1].description").value("Visit 15"));
     }
     
     @Test
