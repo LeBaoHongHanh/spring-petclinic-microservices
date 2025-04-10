@@ -55,7 +55,7 @@ class VetResourceTest {
 
         Vet vet = new Vet();
         vet.setId(1);
-        vet.setFirstName("James");
+        vet.setFirstName("Jonny");
         vet.setLastName("Carter");
         vet.addSpecialty(specialty);
 
@@ -64,7 +64,7 @@ class VetResourceTest {
         mvc.perform(get("/vets").accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$[0].id").value(1))
-            .andExpect(jsonPath("$[0].firstName").value("James"))
+            .andExpect(jsonPath("$[0].firstName").value("Jonny"))
             .andExpect(jsonPath("$[0].lastName").value("Carter"))
             .andExpect(jsonPath("$[0].specialties[0].name").value("dentistry"));
     }
