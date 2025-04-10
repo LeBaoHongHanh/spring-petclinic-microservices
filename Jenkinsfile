@@ -77,18 +77,18 @@ void setBuildStatus(String message, String state) {
 
 String getChangedServices() {
     def changedServices = []
-    def pattern = /^spring-petclinic-.*-service$/;
+    def pattern = /^spring-petclinic-.*-service$/
 
-    for (changeLogSet in currentBuild.changeSets) {
-        for (entry in changeLogSet.getItems()) { 
-            for (file in entry.getAffectedFiles()) {
-                def service = file.getPath().split("/")[0]
-                if (service ==~ pattern) {
-                    changedServices.add(service)
-                }
-            }
+    sh "git fetch origin main:refs/remotes/origin/main"
+    def diffOutput = sh(script: "git diff --name-only origin/main...HEAD", returnStdout: true).trim()
+
+    diffOutput.split('\n').each { filePath ->
+        def service = filePath.split('/')[0]
+        if (service ==~ pattern) {
+            changedServices.add(service)
         }
     }
+
     return changedServices.unique()
 }
 
