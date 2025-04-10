@@ -79,6 +79,7 @@ String getChangedServices() {
     def changedServices = []
     def pattern = /^spring-petclinic-.*-service$/
 
+    sh "git fetch origin main"
     def diffOutput = sh(script: "git diff --name-only origin/main...HEAD", returnStdout: true).trim()
 
     diffOutput.split('\n').each { filePath ->
