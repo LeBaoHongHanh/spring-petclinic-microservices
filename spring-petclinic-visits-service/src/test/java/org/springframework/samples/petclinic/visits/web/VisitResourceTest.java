@@ -2,6 +2,7 @@ package org.springframework.samples.petclinic.visits.web;
 
 import java.util.Date;
 import java.util.Optional;
+import static java.util.Arrays.asList;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 
 import org.springframework.http.MediaType;
-import static java.util.Arrays.asList;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -94,7 +94,7 @@ class VisitResourceTest {
                         .id(12)
                         .petId(123)
                         .date(date)
-                        .description("Visit 12")
+                        .description("Visit 15")
                         .build()
                 )
             );
@@ -106,7 +106,7 @@ class VisitResourceTest {
             .andExpect(jsonPath("$[0].petId").value(123))
             .andExpect(jsonPath("$[1].petId").value(123))
             .andExpect(jsonPath("$[0].description").value("Visit 1"))
-            .andExpect(jsonPath("$[1].description").value("Visit 12"));
+            .andExpect(jsonPath("$[1].description").value("Visit 15"));
     }
     
     @Test
