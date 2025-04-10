@@ -2,6 +2,7 @@ package org.springframework.samples.petclinic.visits.web;
 
 import java.util.Date;
 import java.util.Optional;
+import static java.util.Arrays.asList;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 
 import org.springframework.http.MediaType;
-import static java.util.Arrays.asList;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
